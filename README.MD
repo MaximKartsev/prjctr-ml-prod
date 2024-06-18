@@ -26,7 +26,7 @@ Output:
 5. Colab will ask you to upload the file. Upload `data/train.csv` file
 6. After execution will be finished download the model `trained_model.pkl` from the colab `content` folder
 
-#Stage 2
+# Stage 2
 
 Write an API server for the trained model form Stage1. The API should contain only 1 endpoint for prediction:    
 Output:
@@ -39,7 +39,7 @@ Output:
 
 - `api/api_server.py`: Python script for running API
 
-### How to run the server
+### Libs
 
 The next libs have to be installed:
 
@@ -49,12 +49,23 @@ The next libs have to be installed:
 - scikit-learn
 - joblib
 
+### How to run the server
+
 1. Go to the repository root folder
-2. Run `uvicorn api.api_server:app --host localhost --port 8000`
+2. Run `uvicorn api.api_server:app --host localhost --port 8080`
 
 ### How to test the server
 
 Execute the next curl command in the CLI:  
-`curl -X POST "http://127.0.0.1:8000/predict" -H "Content-Type: application/json" -d "{\"text\": \"Sample text to predict\"}"`
+`curl -X POST "http://127.0.0.1:8080/predict" -H "Content-Type: application/json" -d "{\"text\": \"Sample text to predict\"}"`
 
-For the Linux-based OS may be necessary to change brackets: `curl -X POST "http://127.0.0.1:8000/predict" -H "Content-Type: application/json" -d '{"text": "Sample text to predict"}'`
+For the Linux-based OS may be necessary to change brackets: `curl -X POST "http://127.0.0.1:8080/predict" -H "Content-Type: application/json" -d '{"text": "Sample text to predict"}'`
+
+# Stage 3
+
+The solution was deployed to Google Cloud.  
+Execute the next curl command in the CLI to check it:
+
+`curl -X POST "https://ml-7gh53poy7a-ey.a.run.app/predict" -H "Content-Type: application/json" -d "{\"text\": \"Sample text to predict\"}"`
+
+For the Linux-based OS may be necessary to change brackets: `curl -X POST "https://ml-7gh53poy7a-ey.a.run.app/predict" -H "Content-Type: application/json" -d '{"text": "Sample text to predict"}'`

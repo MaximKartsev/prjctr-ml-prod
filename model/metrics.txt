@@ -1,0 +1,3 @@
+Test Mean Squared Error: 0.8303568833898085
+Test Mean Absolute Error: 0.7332618054207153
+R^2 Score: 0.2069841294610828
